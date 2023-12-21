@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<Head>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Rubik+Doodle+Shadow&display=swap');
+
+
+
+.heading{
+    font-family: 'Rubik Doodle Shadow'
+;
+}
+
+#list{
+    font-family:'Rubik Doodle Shadow'
+'
+
+}
+
+</style>
+
+    <meta charset ="UTF-8">
+    <meta name="viewport" content = "width-device-width, initial -scale =1.0">
+    <title> Todo App</title>
+</Head>
+<body style="background-color:#67568c">
+
+<h1 style="#FFFFFF">Todo list</h1>
+{% for todo in todos_list%}
+<ul>{{todo}}</ul>
+{%endfor%}
+<form>
+<input name=" new_todo">
+<input type="submit">
+</form>
+</body>
+
+
+
+</html>
