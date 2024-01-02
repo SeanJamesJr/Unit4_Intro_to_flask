@@ -26,12 +26,19 @@
 <body style="background-color:#67568c">
 
 <h1 style="#FFFFFF">Todo list</h1>
+<ul class ='card p-4'>
 {% for todo in todos_list%}
-<ul>{{todo}}</ul>
+        <li>
+            {{todo}}
+            <form method="POST" action="/delete_todo/{{loop.index0}}">
+                <input type="submit" value="Delete">
+            </form> 
+        </li>
 {%endfor%}
-<form>
-<input name=" new_todo">
-<input type="submit">
+ </ul>
+<form method="post">
+    <input name="new_todo">
+    <input type="submit">
 </form>
 </body>
 
