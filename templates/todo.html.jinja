@@ -1,45 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <Head>
-<style>
-@import url('https://fonts.googleapis.com/css2?family=Rubik+Doodle+Shadow&display=swap');
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Rubik+Doodle+Shadow&display=swap');
 
+    .
 
+        .heading {
+            font-family: 'Rubik Doodle Shadow'
+            ;
+        }
 
-.heading{
-    font-family: 'Rubik Doodle Shadow'
-;
-}
+        #list {
+            font-family: 'Rubik Doodle Shadow'
+        }
+    </style>
 
-#list{
-    font-family:'Rubik Doodle Shadow'
-'
-
-}
-
-</style>
-
-    <meta charset ="UTF-8">
-    <meta name="viewport" content = "width-device-width, initial -scale =1.0">
-    <title> Todo App</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width-device-width, initial -scale =1.0">
+    <title style="color:#fffffe ;"> Todo App</title>
 </Head>
-<body style="background-color:#67568c">
 
-<h1 style="#FFFFFF">Todo list</h1>
-<ul class ='card p-4'>
-{% for todo in todos_list%}
-        <li>
-            {{todo['description']}}
+<body style="background-color:grey">
+
+    <h1 style="color: #fffffe; text">Todo list</h1>
+    <ul style="color:#e53170"class='card p-4'>
+        {% for todo in todos_list%}
+        <li class = "{% if todo['complete']%}complete {%endif%}">
+        {% if todo['complete']%}☑️{%endif%}
+        {% if todo['complete'] == 0%}{%endif%}
+
+            {{todo['description']}}  
             <form method="POST" action="/delete_todo/{{todo['id']}}">
                 <input type="submit" value="Delete">
-            </form> 
+            </form>
+            {% if todo ['complete'] == 0%}
+            <form method = "POST" action = "/complete_todo/{{todo['id']}}">
+                <input class ="btn" class ="todo-input" type ="submit" value ="Mark Complete">
+                </form>
+                {%endif%}
+                
         </li>
-{%endfor%}
- </ul>
-<form method="post">
-    <input name="new_todo">
-    <input type="submit">
-</form>
+        {%endfor%}☑️
+    </ul>
+    <form method="post">
+        <input name="new_todo">
+        <input type="submit">
+    </form>
 </body>
 
 
